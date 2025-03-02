@@ -1,0 +1,91 @@
+# AI Rules
+
+## Components & Naming
+
+- Use functional components, applying `"use client"` when needed.
+- Name components in PascalCase and place them under `src/components/`.
+- Keep components small and strictly typed using interfaces.
+- Use Tailwind CSS for styling common UI elements (e.g., textarea, button) and avoid using libraries such as Radix or Shadcn.
+
+## Prisma
+
+- Manage database logic with Prisma in `prisma/schema.prisma` and `src/lib/db.ts`.
+- Convert snake_case table names to camelCase fields.
+- Avoid raw SQL; use `npx prisma migrate dev` for migrations instead of `npx prisma db push`.
+
+## Icons
+
+- Prefer using `lucide-react` for icons and name them in PascalCase.
+- Place custom icons in `src/components/icons`.
+
+## Toast Notifications
+
+- Use `react-toastify` in client components.
+- Utilize methods like `toast.success()` and `toast.error()` for notifications.
+
+## Next.js Structure
+
+- Use the App Router located in the `app/` directory. Default to server components and add `"use client"` only for client-side logic.
+- Implement NextAuth with Prisma for authentication, managing secrets via environment variables in `.env`.
+
+## tRPC Routers
+
+- Organize routers in `src/lib/api/routers` and compose them in `src/lib/api/root.ts`.
+- Define procedures as either `publicProcedure` or `protectedProcedure` using Zod for validation.
+- Access these procedures from React via `@/lib/trpc/react`.
+
+## TypeScript & Syntax
+
+- Enforce strict mode and avoid using `any`.
+- Use optional chaining and union types (avoid enums).
+
+## File & Folder Naming
+
+- Name Next.js routes in kebab-case (e.g., `app/dashboard/page.tsx`).
+- Place shared types in `src/lib/types.ts`.
+- Order imports as: external → internal → sibling → styles.
+
+## Tailwind Usage
+
+- Use Tailwind CSS with a mobile-first approach and support dark mode using `dark:(class)`.
+- Extend brand tokens in `tailwind.config.ts`.
+- Prefer Framer Motion for animations.
+
+## Inngest / Background Jobs
+
+- Configure Inngest in `inngest.config.ts`.
+- Create API routes for Inngest in `src/app/api/inngest/route.ts`.
+- Use polling to update the UI based on Inngest events rather than relying solely on tRPC responses.
+
+## AI
+
+- For all AI calls, use `generateChatCompletion` in `src/lib/aiClient.ts`.
+- Prefer the O1 model with high reasoning effort for AI interactions.
+
+## Storybook
+
+- Place Storybook stories in `src/stories` with a `.stories.tsx` extension.
+- Create one story file per component, matching the component's name.
+- Use autodocs for automatic documentation.
+- Include multiple variants and sizes for each component in your stories.
+- Test interactive features using actions.
+- Use relative imports from the component's directory.
+
+## Tools
+
+- When making UI changes, utilize the screenshot tool to display the modifications.
+- For complex tasks, locate relevant files and invoke the architect tool to generate a plan; follow this plan while maintaining existing codebase patterns.
+- After completing a complex task, use the codeReview tool to create a diff and perform a code review of the changes.
+
+## Additional Guidelines
+
+- Write concise code and use semantic commit messages.
+- Place reusable logic in `src/lib/utils/shared.ts` or `src/lib/utils/server.ts`.
+- Use `tsx` scripts for database migrations.
+
+## IMPORTANT
+
+- After all changes, always run a build (`npm run build`). Address warnings and errors as necessary.
+- Always add a one-sentence summary of changes to the AI Updates file (e.g., `.ai-updates`) in markdown format at the end of every agent interaction.
+- If forgotten, the user can type "finish" to run the build and update the AI Updates file.
+- Finally, update git with `git add . && git commit -m "..."` (do not push automatically).
