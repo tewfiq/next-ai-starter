@@ -1,0 +1,14 @@
+<TEMPLATE>
+  <INSTRUCTIONS>
+    Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a set of very detailed step-by-step instructions that an AI coding agent can complete. This can be very detailed if necessary—include relevant code snippets and specify exact file names where changes should be made. Only include steps that the AI coding agent can automate, without involving any manual testing or human verification. Always run a build (e.g., using `npm run build`) when all steps are complete. Use markdown formatting where appropriate.
+  </INSTRUCTIONS>
+  <TASK>
+  </TASK>
+  <AI_RULES>
+  </AI_RULES>
+  <CODEBASE>
+  </CODEBASE>
+  <INSTRUCTIONS>
+    Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a detailed, step-by-step set of instructions that an AI coding agent can execute. Include code snippets as needed, clearly indicate the file names for any changes, and ensure that all steps are actionable by the AI. The agent must always perform a build at the end of the process. Use markdown formatting in the output.
+  </INSTRUCTIONS>
+</TEMPLATE>
