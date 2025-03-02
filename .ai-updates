@@ -1,0 +1,8 @@
+# AI Updates
+
+- Ran production build verification – build completed successfully with no TypeScript or compilation errors.
+- Performed build check on the Next.js app with tRPC and Tailwind configuration.
+- Successfully ran production build with Prisma generation and Next.js compilation.
+- Fixed dynamic route warning by adding a force-dynamic configuration to the root page.
+- Added Storybook with the Button component and its stories, and updated AI rules with Storybook guidelines.
+- Captured a screenshot of the Button component stories in Storybook.
